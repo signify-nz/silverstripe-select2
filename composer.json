@@ -1,5 +1,5 @@
 {
-	"name": "sheadawson/silverstripe-select2",
+	"name": "sig-dan/select2",
 	"description": "A set of silverstripe form fields based on http://ivaynberg.github.com/select2/s",
 	"type": "silverstripe-module",
 	"keywords": ["silverstripe", "forms", "ajax"],
