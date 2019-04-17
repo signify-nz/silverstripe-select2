@@ -1,13 +1,13 @@
 {
-	"name": "sheadawson/silverstripe-select2",
+	"name": "sig-dan/silverstripe-select2",
 	"description": "A set of silverstripe form fields based on http://ivaynberg.github.com/select2/s",
 	"type": "silverstripe-module",
 	"keywords": ["silverstripe", "forms", "ajax"],
-	"homepage": "http://github.com/sheadawson/silverstripe-select2",
+	"homepage": "http://github.com/sig-dan/silverstripe-select2",
 	"authors": [
 	{
-		"name": "Shea Dawson",
-		"email": "shea@livesource.co.nz"
+		"name": "Dan Brosnan",
+		"email": "dan.brosnan@signify.co.nz"
 	}
 	],
 
