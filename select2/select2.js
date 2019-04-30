@@ -1010,7 +1010,7 @@
         close: function () {
             // if it's been open for less than .35 seconds, don't exit
             var tempCounter = new Date().getTime();
-            if (openTime > tempCounter - 350) {
+            if (openTime > tempCounter - 1000) {
                 // console.log('short: ' + (openTime - tempCounter));
                 return;
             }
