@@ -13,34 +13,32 @@
  See the License for the specific language governing permissions and limitations under the License.
  */
  (function ($) {
-        if(typeof $.fn.each2 == "undefined"){
-                $.fn.extend({
-                        /*
-                        * 4-10 times faster .each replacement
-                        * use it carefully, as it overrides jQuery context of element on each iteration
-                        */
-                        each2 : function (c) {
-                                var j = $([0]), i = -1, l = this.length;
-                                while (
-                                        ++i < l
-                                        && (j.context = j[0] = this[i])
-                                        && c.call(j[0], i, j) !== false //"this"=DOM, i=index, j=jQuery object
-                                );
-                                return this;
-                        }
-                });
-        }
+    if(typeof $.fn.each2 == "undefined"){
+        $.fn.extend({
+            /*
+            * 4-10 times faster .each replacement
+            * use it carefully, as it overrides jQuery context of element on each iteration
+            */
+            each2 : function (c) {
+                var j = $([0]), i = -1, l = this.length;
+                while (
+                    ++i < l
+                    && (j.context = j[0] = this[i])
+                    && c.call(j[0], i, j) !== false //"this"=DOM, i=index, j=jQuery object
+                );
+                return this;
+            }
+        });
+    }
 })(jQuery);
 
 (function ($, undefined) {
     "use strict";
     /*global document, window, jQuery, console */
-    var openTime = new Date().getTime();
 
     if (window.Select2 !== undefined) {
         return;
     }
-    var openTime = new Date().getTime();
 
     var KEY, AbstractSelect2, SingleSelect2, MultiSelect2, nextUid, sizer;
 
@@ -175,7 +173,7 @@
      * the elements under the pointer are scrolled.
      */
     function installFilteredMouseMove(element) {
-            element.bind("mousemove", function (e) {
+        element.bind("mousemove", function (e) {
             var lastpos = $.data(document, "select2-lastpos");
             if (lastpos === undefined || lastpos.x !== e.pageX || lastpos.y !== e.pageY) {
                 $(e.target).trigger("mousemove-filtered", e);
@@ -232,21 +230,21 @@
 
     function measureTextWidth(e) {
         if (!sizer){
-                var style = e[0].currentStyle || window.getComputedStyle(e[0], null);
-                sizer = $("<div></div>").css({
-                    position: "absolute",
-                    left: "-10000px",
-                    top: "-10000px",
-                    display: "none",
-                    fontSize: style.fontSize,
-                    fontFamily: style.fontFamily,
-                    fontStyle: style.fontStyle,
-                    fontWeight: style.fontWeight,
-                    letterSpacing: style.letterSpacing,
-                    textTransform: style.textTransform,
-                    whiteSpace: "nowrap"
-                });
-                $("body").append(sizer);
+            var style = e[0].currentStyle || window.getComputedStyle(e[0], null);
+            sizer = $("<div></div>").css({
+                position: "absolute",
+                left: "-10000px",
+                top: "-10000px",
+                display: "none",
+                fontSize: style.fontSize,
+                fontFamily: style.fontFamily,
+                fontStyle: style.fontStyle,
+                fontWeight: style.fontWeight,
+                letterSpacing: style.letterSpacing,
+                textTransform: style.textTransform,
+                whiteSpace: "nowrap"
+            });
+            $("body").append(sizer);
         }
         sizer.text(e.val());
         return sizer.width();
@@ -961,7 +959,7 @@
          */
         // abstract
         opening: function() {
-          var cid = this.containerId, selector = this.containerSelector,
+            var cid = this.containerId, selector = this.containerSelector,
                 scroll = "scroll." + cid, resize = "resize." + cid;
 
             this.container.parents().each(function() {
@@ -979,7 +977,7 @@
                 if (s2.length == 0) {
                     $(window).unbind(resize);
                 }
-                s2.select2("close");
+                //s2.select2("close");
             });
 
             this.clearDropdownAlignmentPreference();
@@ -1002,18 +1000,10 @@
             this.ensureHighlightVisible();
 
             this.focusSearch();
-            openTime = new Date().getTime();
-
         },
 
         // abstract
         close: function () {
-            // if it's been open for less than .35 seconds, don't exit
-            var tempCounter = new Date().getTime();
-            if (openTime > tempCounter - 1000) {
-                // console.log('short: ' + (openTime - tempCounter));
-                return;
-            }
             if (!this.opened()) return;
 
             var self = this;
@@ -1124,7 +1114,7 @@
         highlightUnderEvent: function (event) {
             var el = $(event.target).closest(".select2-result-selectable");
             if (el.length > 0 && !el.is(".select2-highlighted")) {
-                        var choices = this.results.find('.select2-result-selectable');
+                var choices = this.results.find('.select2-result-selectable');
                 this.highlight(choices.index(el));
             } else if (el.length == 0) {
                 // if we are over an unselectable item remove al highlights
@@ -1383,7 +1373,7 @@
 
         // single
 
-                createContainer: function () {
+        createContainer: function () {
             var container = $("<div></div>", {
                 "class": "select2-container"
             }).html([
@@ -1795,7 +1785,7 @@
                 "   <ul class='select2-results'>" ,
                 "   </ul>" ,
                 "</div>"].join(""));
-                        return container;
+            return container;
         },
 
         // multi
@@ -1990,7 +1980,7 @@
             this.parent.opening.apply(this, arguments);
 
             this.clearPlaceholder();
-                        this.resizeSearch();
+            this.resizeSearch();
             this.focusSearch();
         },
 
