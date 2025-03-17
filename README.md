@@ -4,7 +4,7 @@ Four silverstripe form fields based on http://ivaynberg.github.com/select2/.
 
 ## Requirements
 
-SilverStripe framework ^4
+SilverStripe framework ^5
 
 ## Maintainer Contact
 
