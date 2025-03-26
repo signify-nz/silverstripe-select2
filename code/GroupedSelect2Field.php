@@ -9,9 +9,8 @@ class GroupedSelect2Field extends GroupedDropdownField
 {
     public function Field($properties = array())
     {
-        Requirements::javascript('sheadawson/silverstripe-select2: select2/select2.js');
-        Requirements::javascript('sheadawson/silverstripe-select2: javascript/ajaxselect2.init.js');
-        Requirements::css('sheadawson/silverstripe-select2: select2/select2.min.css');
+        Requirements::javascript('sheadawson/silverstripe-select2: client/dist/js/main.js');
+        Requirements::css('sheadawson/silverstripe-select2: client/dist/css/main.css');
 
         $this->addExtraClass('select2')->addExtraClass('no-chzn');
 
