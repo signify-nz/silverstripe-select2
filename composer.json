@@ -19,10 +19,8 @@
         "composer/installers": "*"
     },
     "extra": {
-        "installer-name": "select2",
         "expose": [
-            "javascript",
-            "select2"
+            "client/dist"
         ]
     },
     "autoload": {
